@@ -123,3 +123,127 @@ body{
     margin-top: 10px;
     display: none;
 }
+
+
+
+/* Media Queries */
+
+/* Small devices (phones) */
+@media only screen and (max-width: 767px) {
+    .card {
+        width: 100%;
+        max-width: none;
+        border-radius: 0;
+        padding: 30px 15px;
+    }
+
+    .search input {
+        margin-bottom: 16px;
+    }
+
+    .weather h1 {
+        font-size: 60px;
+    }
+
+    .weather h2 {
+        font-size: 35px;
+    }
+
+    .col img {
+        width: 30px;
+    }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .card {
+        max-width: 80%;
+    }
+
+    .search input {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+
+    .search button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .weather h1 {
+        font-size: 70px;
+    }
+
+    .weather h2 {
+        font-size: 40px;
+    }
+
+    .col img {
+        width: 35px;
+    }
+}
+
+/* Large devices (desktops) */
+@media only screen and (min-width: 992px) {
+    .card {
+        max-width: 60%;
+    }
+
+    .search input {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .search button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .weather h1 {
+        font-size: 80px;
+    }
+
+    .weather h2 {
+        font-size: 45px;
+    }
+
+    .col img {
+        width: 40px;
+    }
+}
+
+
+
+/* Existing CSS styles */
+
+/* Small devices (phones) */
+@media only screen and (max-width: 379px) {
+    .search button {
+        min-width: 40px; /* Adjust as needed */
+    }
+}
+
+/* Additional Media Query for Very Small Screens */
+@media only screen and (max-width: 320px) {
+    .search input {
+        font-size: 14px; /* Adjust as needed */
+        padding: 8px 15px; /* Adjust as needed */
+    }
+
+    .search button {
+        min-width: 35px; /* Adjust as needed */
+        height: 35px; /* Adjust as needed */
+    }
+
+    .weather h1 {
+        font-size: 50px; /* Adjust as needed */
+    }
+
+    .weather h2 {
+        font-size: 30px; /* Adjust as needed */
+    }
+
+    .col img {
+        width: 25px; /* Adjust as needed */
+    }
+}

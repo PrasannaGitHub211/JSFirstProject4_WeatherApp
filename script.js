@@ -5,7 +5,17 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
+
+//Adding voice command to search weather of 
+//specific city
+const voiceButton = document.getElementById("voiceBtn");
+const recognition  = new webkitSpeechRecognition() || new SpeechRecognition();
+
 async function checkWeather(city){
+    if (!city) {
+        // If city is empty, do not make the API request
+        return;
+    }
     const response = await fetch(apiUrl+city+`&appid=${apiKey}`)
     if(response.status == 404){
         document.querySelector(".error").style.display = "block";
@@ -39,8 +49,20 @@ async function checkWeather(city){
                         document.querySelector(".error").style.display = "none";
     }
    
-}   
+}  
+//Adding voice command to search weather of 
+//specific city
+voiceButton.addEventListener("click",()=>{
+    recognition.start();
+});
+
+recognition.onresult = (voiceParameter)=>{
+    const voiceResult = voiceParameter.results[0][0].transcript;
+    searchBox.value = voiceResult;
+    checkWeather(voiceResult);
+}
+ 
 
 searchBtn.addEventListener("click",()=>{
     checkWeather(searchBox.value);
-})
+});

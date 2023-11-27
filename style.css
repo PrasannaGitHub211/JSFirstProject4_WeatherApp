@@ -266,3 +266,38 @@ body{
     height: 36px;
     border-radius: 20px;
 }
+
+
+
+/* Adding rgb lighting border to weather box*/
+
+/* Define the weather box style */
+/* Add these styles to your style.css file */
+
+/* Define the weather box style */
+/* Add these styles to your style.css file */
+
+/* Define the card style with an attractive border */
+.card {
+    position: relative;
+    border: 4px solid #3498db; /* Border color */
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Define the lightning animation */
+@keyframes lightning {
+    0%, 100% {
+        border-color: rgba(255, 255, 255, 0);
+    }
+    10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% {
+        border-color: rgba(255, 255, 255, 1);
+    }
+}
+
+/* Apply the lightning animation to the card */
+.card:hover {
+    animation: lightning 0.5s infinite;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8); /* Add a subtle box shadow for extra effect */
+}

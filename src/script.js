@@ -11,6 +11,10 @@ const weatherIcon = document.querySelector(".weather-icon");
 const voiceButton = document.getElementById("voiceBtn");
 const recognition  = new webkitSpeechRecognition() || new SpeechRecognition();
 
+
+// sound effect for different weather
+const audio = new Audio();
+
 async function checkWeather(city){
     if (!city) {
         // If city is empty, do not make the API request
@@ -30,20 +34,34 @@ async function checkWeather(city){
                         document.querySelector(".humidity").innerHTML = data.main.humidity+"%";
                         document.querySelector(".wind").innerHTML = data.wind.speed+" km/h"; 
                     
+
+                        //sound effect for different weather
+                        let soundFile = "";
                     
                         if(data.weather[0].main == "Clouds"){
-                            weatherIcon.src = "clouds.png";
+                            weatherIcon.src = "/clouds.png";
+                            soundFile = "/clouds.mp3";
                         }else if(data.weather[0].main == "Clear"){
-                            weatherIcon.src = "clear.png";
+                            weatherIcon.src = "/clear.png";
+                            soundFile = "/clearsky.mp3";
                         }else if(data.weather[0].main == "Rain"){
-                            weatherIcon.src = "rain.png";
+                            weatherIcon.src = "/rain.png";
+                            soundFile = "/rain.mp3";
                         }else if(data.weather[0].main == "Snow"){
-                            weatherIcon.src = "snow.png";
+                            weatherIcon.src = "/snow.png";
+                            soundFile = "/snow.mp3";
                         }else if(data.weather[0].main == "Mist"){
-                            weatherIcon.src = "mist.png";
+                            weatherIcon.src = "/mist.png";
+                            soundFile = "/mist.mp3";
                         }else if(data.weather[0].main == "Drizzle"){
-                            weatherIcon.src = "drizzle.png";
+                            weatherIcon.src = "/drizzle.png";
+                            soundFile = "/drizzling.mp3";
                         }
+                        // Play the sound
+                    if (soundFile) {
+                        audio.src = soundFile;
+                        audio.play();
+                    }
                     
                         document.querySelector(".weather").style.display = "block";
                         document.querySelector(".error").style.display = "none";
